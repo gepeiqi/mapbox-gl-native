@@ -3,9 +3,8 @@
 #include <mbgl/renderer/backend_scope.hpp>
 #include <mbgl/renderer/renderer.hpp>
 
-QMapboxGLRendererFrontend::QMapboxGLRendererFrontend(std::unique_ptr<mbgl::Renderer> renderer_, mbgl::View& view_)
-    : renderer(std::move(renderer_))
-    , view(view_) {
+QMapboxGLRendererFrontend::QMapboxGLRendererFrontend(std::unique_ptr<mbgl::Renderer> renderer_)
+    : renderer(std::move(renderer_)) {
 }
 
 QMapboxGLRendererFrontend::~QMapboxGLRendererFrontend() = default;
@@ -28,5 +27,5 @@ void QMapboxGLRendererFrontend::setObserver(mbgl::RendererObserver& observer_) {
 
 void QMapboxGLRendererFrontend::render() {
     if (!renderer || !updateParameters) return;
-    renderer->render(view, *updateParameters);
+    renderer->render(*updateParameters);
 }

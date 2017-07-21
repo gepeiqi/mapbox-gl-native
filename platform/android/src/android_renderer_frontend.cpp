@@ -1,6 +1,5 @@
 #include "android_renderer_frontend.hpp"
 
-#include <mbgl/map/view.hpp>
 #include <mbgl/renderer/renderer.hpp>
 
 namespace mbgl {
@@ -34,11 +33,11 @@ void AndroidRendererFrontend::update(std::shared_ptr<UpdateParameters> params) {
     asyncInvalidate.send();
 }
 
-void AndroidRendererFrontend::render(View& view) {
+void AndroidRendererFrontend::render() {
     assert (renderer);
     if (!updateParameters) return;
 
-    renderer->render(view, *updateParameters);
+    renderer->render(*updateParameters);
 }
 
 void AndroidRendererFrontend::onLowMemory() {

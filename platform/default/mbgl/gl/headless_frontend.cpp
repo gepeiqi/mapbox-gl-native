@@ -16,7 +16,7 @@ HeadlessFrontend::HeadlessFrontend(Size size_, float pixelRatio_, FileSource& fi
               static_cast<uint32_t>(size.height * pixelRatio) }),
     asyncInvalidate([this] {
         if (renderer && updateParameters) {
-            renderer->render(backend, *updateParameters);
+            renderer->render(*updateParameters);
         }
     }),
     renderer(std::make_unique<Renderer>(backend, pixelRatio, fileSource, scheduler)) {

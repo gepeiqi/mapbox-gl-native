@@ -6,7 +6,6 @@
 #import <OpenGLES/EAGL.h>
 
 #include <mbgl/map/map.hpp>
-#include <mbgl/map/view.hpp>
 #include <mbgl/annotation/annotation.hpp>
 #include <mbgl/map/camera.hpp>
 #include <mbgl/map/mode.hpp>
@@ -5417,7 +5416,7 @@ public:
     return _annotationViewReuseQueueByIdentifier[identifier];
 }
 
-class MBGLView : public mbgl::View, public mbgl::RendererBackend, public mbgl::MapObserver
+class MBGLView : public mbgl::RendererBackend, public mbgl::MapObserver
 {
 public:
     MBGLView(MGLMapView* nativeView_) : nativeView(nativeView_) {

@@ -30,7 +30,7 @@ void GLFWRendererFrontend::render() {
     
     if (!updateParameters) return;
 
-    renderer->render(glfwView, *updateParameters);
+    renderer->render(*updateParameters);
 }
 
 mbgl::Renderer* GLFWRendererFrontend::getRenderer() {

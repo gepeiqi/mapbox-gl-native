@@ -106,7 +106,7 @@ NativeMapView::~NativeMapView() {
 }
 
 /**
- * From mbgl::View
+ * From mbgl::RendererBackend
  */
 void NativeMapView::bind() {
     setFramebufferBinding(0);
@@ -274,7 +274,7 @@ void NativeMapView::render(jni::JNIEnv& env) {
         framebufferSizeChanged = false;
     }
 
-    rendererFrontend->render(*this);
+    rendererFrontend->render();
 
     if(snapshot){
          snapshot = false;
