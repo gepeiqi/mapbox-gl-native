@@ -99,6 +99,6 @@ class PolygonContainer implements Polygons {
   }
 
   private boolean isAddedToMap(Annotation annotation) {
-    return annotation != null && annotation.getId() != -1 && annotations.indexOfKey(annotation.getId()) != -1;
+    return annotation != null && annotation.getId() != -1 && annotations.indexOfKey(annotation.getId()) > -1;
   }
 }
