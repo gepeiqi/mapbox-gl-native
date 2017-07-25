@@ -69,7 +69,7 @@ void RasterBucket::setMask(TileMask&& mask_) {
     for (const auto& id : mask) {
         // Create a quad for every masked tile.
         const int32_t vertexExtent = util::EXTENT >> id.z;
-        const int32_t textureExtent = 32768 >> id.z;
+        const int32_t textureExtent = util::EXTENT >> id.z;
 
         const Point<int16_t> tlVertex = { static_cast<int16_t>(id.x * vertexExtent),
                                           static_cast<int16_t>(id.y * vertexExtent) };
